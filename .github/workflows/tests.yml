@@ -109,9 +109,3 @@ jobs:
         env:
           BUILD_ID: ${{ github.run_id }}
           BUILD_ENV: GitHub Actions
-
-      - name: "run security test"
-        run: |
-          wget https://github.com/whitehatsec-innovations/distribution/releases/latest/download/dast-attacker-cli.deb
-          sudo dpkg -i dast-attacker-cli.deb 
-          sudo dast-attacker-cli -accept-eula=Yes -license-key=327a4208-b160-439b-a126-400f30a94fac -output-json=results.json -output-html=results.html .scan/*.har
